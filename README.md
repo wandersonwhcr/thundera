@@ -18,4 +18,9 @@ comunidade de software livre, buscando novos conhecimentos.
 
 No final de 2020, decidi atualizar este sistema para as tecnologias atuais,
 reescrevendo totalmente o _software_ com base no projeto
-[Balance](https://github.com/wandersonwhcr/balance).
+[Balance](//github.com/wandersonwhcr/balance).
+
+## Licença
+
+Este projeto é _opensource_ e utiliza a Licença BSD-3-Clause, descrita no
+arquivo [`LICENSE`](//github.com/wandersonwhcr/thundera/blob/master/LICENSE).
