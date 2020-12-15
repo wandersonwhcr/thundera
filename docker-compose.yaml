@@ -35,6 +35,7 @@ services:
     labels:
     - "traefik.enable=true"
     - "traefik.http.routers.accounts.rule=Host(`accounts.thundera.localhost`)"
+    - "traefik.port=8000"
     ports:
     - "8000"
     volumes:
