@@ -17,3 +17,15 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: "root"
       RABBITMQ_DEFAULT_PASS: "root"
+
+  accounts:
+    image: "golang:1.15"
+    ports:
+    - "8000"
+    volumes:
+    - "./services/accounts:/go"
+    command: ["go", "run", "main.go"]
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      PORT: "8000"
+      XDG_CACHE_HOME: "/tmp/.cache"
