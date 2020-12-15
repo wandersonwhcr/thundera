@@ -18,8 +18,23 @@ services:
       RABBITMQ_DEFAULT_USER: "root"
       RABBITMQ_DEFAULT_PASS: "root"
 
+  proxy:
+    image: "traefik:2.3"
+    ports:
+    - "80:80"
+    volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    command:
+    - "--entrypoints.web.address=:80"
+    - "--log.level=DEBUG"
+    - "--providers.docker.exposedbydefault=false"
+    - "--providers.docker=true"
+
   accounts:
     image: "golang:1.15"
+    labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.accounts.rule=Host(`accounts.thundera.localhost`)"
     ports:
     - "8000"
     volumes:
@@ -29,3 +44,5 @@ services:
     environment:
       PORT: "8000"
       XDG_CACHE_HOME: "/tmp/.cache"
+    depends_on:
+    - "proxy"
