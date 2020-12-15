@@ -2,6 +2,11 @@
 
 Balancete Contábil
 
+## Introdução
+
+O Thundera é um pequeno sistema Web para controle de balancete contábil simples,
+com cadastro de contas, lançamentos e visualização do balancete.
+
 ## História
 
 Quando eu estava cursando meu Técnico em Informática em 2005, desenvolvi um
