@@ -15,3 +15,7 @@ disponibilizar o código.
 Decidindo reescrevê-lo, no ano de 2015 eu resolvi adicionar todas as tecnologias
 que dominava no momento. Assim, criei este projeto para contribuir com a
 comunidade de software livre, buscando novos conhecimentos.
+
+No final de 2020, decidi atualizar este sistema para as tecnologias atuais,
+reescrevendo totalmente o _software_ com base no projeto
+[Balance](https://github.com/wandersonwhcr/balance).
