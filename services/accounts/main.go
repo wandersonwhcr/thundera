@@ -1,6 +1,7 @@
 package main
 
 import (
+    "github.com/gorilla/handlers"
     "github.com/gorilla/mux"
     "net/http"
     "os"
@@ -16,5 +17,7 @@ func main() {
 
     router.HandleFunc("/", Home).Methods("GET")
 
-    http.ListenAndServe(":" + os.Getenv("PORT"), router)
+    logger := handlers.LoggingHandler(os.Stdout, router)
+
+    http.ListenAndServe(":" + os.Getenv("PORT"), logger)
 }
