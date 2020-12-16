@@ -3,6 +3,9 @@ package uuid
 import (
     "encoding/json"
     "github.com/google/uuid"
+    "go.mongodb.org/mongo-driver/bson"
+    "go.mongodb.org/mongo-driver/bson/bsontype"
+    "go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type UUID struct {
@@ -25,4 +28,8 @@ func (u UUID) MarshalJSON() ([]byte, error) {
     value, _ := uuid.FromBytes(u.Data)
 
     return json.Marshal(value)
+}
+
+func (u UUID) MarshalBSONValue() (bsontype.Type, []byte, error) {
+    return bson.MarshalValue(primitive.Binary{bsontype.BinaryUUID, u.Data})
 }

@@ -6,17 +6,11 @@ services:
     image: "mongo:4.4"
     ports:
     - "27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: "root"
-      MONGO_INITDB_ROOT_PASSWORD: "root"
 
   events:
     image: "rabbitmq:3.8"
     ports:
     - "5672"
-    environment:
-      RABBITMQ_DEFAULT_USER: "root"
-      RABBITMQ_DEFAULT_PASS: "root"
 
   proxy:
     image: "traefik:2.3"
@@ -48,4 +42,5 @@ services:
       PORT: "8000"
       XDG_CACHE_HOME: "/tmp/.cache"
     depends_on:
+    - "database"
     - "proxy"
