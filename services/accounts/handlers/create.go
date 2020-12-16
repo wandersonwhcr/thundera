@@ -1,8 +1,8 @@
 package handlers
 
 import (
+    "accounts/helpers/uuid"
     "encoding/json"
-    "github.com/google/uuid"
     "net/http"
 )
 
