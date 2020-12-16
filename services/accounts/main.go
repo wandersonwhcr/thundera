@@ -12,6 +12,7 @@ func main() {
     router := mux.NewRouter()
 
     router.HandleFunc("/", handlers.Home).Methods("GET")
+    router.HandleFunc("/v1/accounts", handlers.Create).Methods("POST")
 
     logger := middlewares.LoggingHandler(os.Stdout, router)
 
