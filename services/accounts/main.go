@@ -2,10 +2,10 @@ package main
 
 import (
     "encoding/json"
-    "github.com/gorilla/handlers"
     "github.com/gorilla/mux"
     "net/http"
     "os"
+    middlewares "github.com/gorilla/handlers"
 )
 
 func Home(writer http.ResponseWriter, request *http.Request) {
@@ -23,7 +23,7 @@ func main() {
 
     router.HandleFunc("/", Home).Methods("GET")
 
-    logger := handlers.LoggingHandler(os.Stdout, router)
+    logger := middlewares.LoggingHandler(os.Stdout, router)
 
     http.ListenAndServe(":" + os.Getenv("PORT"), logger)
 }
