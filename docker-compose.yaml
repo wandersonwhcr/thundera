@@ -44,6 +44,7 @@ services:
     command: ["go", "run", "main.go"]
     user: "${UID:-1000}:${GID:-1000}"
     environment:
+      MONGO_URI: "mongodb://database"
       PORT: "8000"
       XDG_CACHE_HOME: "/tmp/.cache"
     depends_on:
