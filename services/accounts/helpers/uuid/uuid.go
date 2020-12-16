@@ -1,6 +1,7 @@
 package uuid
 
 import (
+    "encoding/json"
     "github.com/google/uuid"
 )
 
@@ -18,4 +19,10 @@ func (u UUID) String() (string) {
     value, _ := uuid.FromBytes(u.Data)
 
     return value.String()
+}
+
+func (u UUID) MarshalJSON() ([]byte, error) {
+    value, _ := uuid.FromBytes(u.Data)
+
+    return json.Marshal(value)
 }

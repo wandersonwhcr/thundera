@@ -7,8 +7,10 @@ import (
 )
 
 func Create(writer http.ResponseWriter, request *http.Request) {
-    identifier := map[string]string{
-        "_id": uuid.New().String(),
+    _id := uuid.New()
+
+    identifier := map[string]uuid.UUID{
+        "_id": _id,
     }
 
     writer.Header().Set("Content-Type", "application/json")
