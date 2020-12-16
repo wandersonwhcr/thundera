@@ -2,12 +2,13 @@ package handlers
 
 import (
     "encoding/json"
+    "github.com/google/uuid"
     "net/http"
 )
 
 func Create(writer http.ResponseWriter, request *http.Request) {
     identifier := map[string]string{
-        "_id": "399a1586-d2a9-4f0d-abcd-9e5db0834e2f",
+        "_id": uuid.New().String(),
     }
 
     writer.Header().Set("Content-Type", "application/json")
