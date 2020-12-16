@@ -1,6 +1,7 @@
 package handlers
 
 import (
+    "accounts/entities"
     "accounts/helpers/uuid"
     "context"
     "encoding/json"
@@ -8,14 +9,10 @@ import (
     "net/http"
 )
 
-type Account struct {
-    Id uuid.UUID `json:"_id" bson:"_id"`
-}
-
 func Create(writer http.ResponseWriter, request *http.Request) {
     database := request.Context().Value("database").(*mongo.Client)
 
-    account := Account{uuid.New()}
+    account := entities.Account{uuid.New()}
 
     database.Database("accounts").Collection("accounts").InsertOne(context.TODO(), account)
 
