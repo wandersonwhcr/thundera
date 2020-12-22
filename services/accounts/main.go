@@ -25,6 +25,7 @@ func main() {
 
     router.HandleFunc("/", handlers.Home).Methods("GET")
     router.HandleFunc("/v1/accounts", handlers.Create).Methods("POST")
+    router.HandleFunc("/v1/accounts", handlers.Find).Methods("GET")
 
     logger := middlewares.LoggingHandler(os.Stdout, router)
 
