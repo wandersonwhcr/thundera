@@ -33,3 +33,9 @@ func (u UUID) MarshalJSON() ([]byte, error) {
 func (u UUID) MarshalBSONValue() (bsontype.Type, []byte, error) {
     return bson.MarshalValue(primitive.Binary{bsontype.BinaryUUID, u.Data})
 }
+
+func (u *UUID) UnmarshalBSONValue(t bsontype.Type, data []byte) (error) {
+    _, Data := bson.RawValue{Type: t, Value: data}.Binary()
+    u.Data = Data
+    return nil
+}
